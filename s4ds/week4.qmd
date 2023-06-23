@@ -1,0 +1,119 @@
+# Two samples testing {.unnumbered}
+
+At the end of this week, you will be able to:
+
+-   Practice with advanced *SQL*
+-   Evaluate `UNION`, `Subqueries`, `EXCEPT`, and other *SQL* commands.
+-   Apply `JOINS`
+
+<!-- ### References -->
+
+<!-- - *Practical Guide for Oracle SQL, T-SQL and MySQL* [@zhang2017practical]. -->
+
+## Advanced SQL commands {.unnumbered}
+
+SQL commands to return all rows from two tables:
+
+::: rmdnote
+<p align="left">
+
+`SELECT column(s)`<br/> `FROM table1` <br/> **`UNION ALL`**<br/> `SELECT column(s)`<br/> `FROM table2;`
+
+</p>
+:::
+
+SQL commands to return only rows that exist in both tables:
+
+::: rmdnote
+<p align="left">
+
+`SELECT column(s)`<br/> `FROM table1` <br/> **`INTERSECT`**<br/> `SELECT column(s)`<br/> `FROM table2;`
+
+</p>
+:::
+
+SQL commands to return all rows in the first SELECT but excludes those by the second SELECT:
+
+::: rmdnote
+<p align="left">
+
+`SELECT col1,col2,...`<br/> `FROM table1` <br/> **`EXCEPT`**<br/> `SELECT col1,col2,...`<br/> `FROM table2;`
+
+</p>
+:::
+
+SQL command to specify the number of records to return:
+
+::: rmdnote
+<p align="left">
+
+`SELECTTOPnumber | percent column_names(s) <br/>`FROM table_name;\`
+
+</p>
+:::
+
+## Subqueries {.unnumbered}
+
+A *Subquery* is a SQL query nested inside a SQL query. Very useful to create a virtual table usable by the main query.
+
+::: rmdnote
+<p align="left">
+
+`SELECT column(s)`<br/> `FROM table1` <br/> `WHERE value IN` <br/> (**`SELECT column_name`**<br/> **`FROM tables2`**<br/> **`WHERE conditions);`**
+
+</p>
+:::
+
+## Joins {.unnumbered}
+
+Relational databases are defined with tables or entities such *Employee* and *Department*. To create a link between the two tables a column is defined as *Department_ID* in both tables. Now, if you would like to extract employee names and departments names you need to SQL JOIN.
+
+There are four main type of joins:
+
+| JOIN          | Action                                                                                 |
+|---------------|----------------------------------------------------------------------------------------|
+| `INNER JOIN`  | return records that have matching values in both tables                                |
+| `LEFT JOIN`   | return all records from table1 (**LEFT** table1) and the matched records from table2   |
+| `RIGHT JOIN`  | return all records from table2 (**RIGHT** table1) and the matched records from table1. |
+| `FULL JOIN()` | return all rows from both tables                                                       |
+|               |                                                                                        |
+
+Syntax:
+
+::: rmdnote
+<p align="left">
+
+`SELECT table1.col_name, table2.col_name`<br/> `FROM table1` <br/> **`INNER JOIN`** `table2ON` `table1.col_name = table2.col_name;`
+
+</p>
+
+OR
+
+<p align="left">
+
+`SELECT table1.col_name, table2.col_name`<br/> `FROM table1` <br/> **`LEFT JOIN`** `table2ON` `table1.col_name = table2.col_name;`
+
+</p>
+
+OR
+
+<p align="left">
+
+`SELECT table1.col_name, table2.col_name`<br/> `FROM table1` <br/> **`RIGHT JOIN`** `table2ON` `table1.col_name = table2.col_name;`
+
+</p>
+
+OR
+
+<p align="left">
+
+`SELECT table1.col_name, table2.col_name`<br/> `FROM table1` <br/> **`FULL JOIN`** `table2ON` `table1.col_name = table2.col_name;`
+
+</p>
+:::
+
+🛎 🎙️ Recordings on Canvas will cover more details and examples! Have fun learning and coding 😃! Let me know how I can help!
+
+## 📚 👈 Assignments - Advanced SQL {.unnumbered}
+
+Instructions are posted on Canvas.

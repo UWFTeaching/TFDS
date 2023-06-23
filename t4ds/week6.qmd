@@ -1,0 +1,155 @@
+```{r, include=FALSE}
+library(reticulate)
+```
+
+# More Python (Stat/ML/Viz) {.unnumbered}
+
+We continue our journey with *Python*. At the end of this week, you will be able to:
+
+-   Practice using **statsmodels** library for statistical analysis
+-   Exercise using **Scikit-learn** library for machine learning
+-   Create plots using **Matplotlib**
+
+## Statistical Models in Python {.unnumbered}
+
+[statsmodels](https://www.statsmodels.org/stable/index.html){target="_blank"} is a Python package that provides functions for fitting statistical models, conducting statistical tests, and statistical data exploration.
+
+Let's read a data set from the list provided in this [link](https://github.com/vincentarelbundock/Rdatasets/){target="{\"_blank\""}. We use the `mtcars` data set in R package `datasets`.
+
+```{python}
+import statsmodels.api as stat # allow to access easily to most of the functions
+import statsmodels.formula.api as statf # allow to use formula style to fit the models
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+df = stat.datasets.get_rdataset("mtcars", "datasets").data # load data "mtcars" from the R package 'datasets'
+print(df.info())
+
+fit_olsregression = statf.ols("mpg ~ wt + cyl",data=df).fit()
+print(fit_olsregression.summary())
+
+pred_ols = fit_olsregression.get_prediction()
+pred_ols.summary_frame().head()
+
+
+df["cyl"] = df["cyl"].astype("category") # make cyl categorical variable
+fit_olsregression = statf.ols("mpg ~ wt + cyl",data=df).fit() # refit with a categorical variable 
+print(fit_olsregression.summary())
+
+
+```
+
+For more statistics with Python consult the following links: - [Statistical tests](https://www.statsmodels.org/stable/stats.html){target="_blank"} - [Generalized Linear Models](https://www.statsmodels.org/stable/glm.html){target="_blank"} - [Contingency Tables](https://www.statsmodels.org/stable/contingency_tables.html){target="_blank"}
+
+## Machine Learning {.unnumbered}
+
+The `scikit-learn` provides function that support machine learning techniques and practices including model fitting, predicting, cross-validation, etc. It also provides various supervised and unsupervised methods. The website of the package is [https://scikit-learn.org](https://scikit-learn.org){target="_blank"}
+
+#### Linear models {.unnumbered}
+
+Fitting regression models is relevant when the target value or response variable is assumed to be a linear combinations of some predictors. The following code will allow you to fit various linear models using sklearn module.
+
+```{python}
+from sklearn import linear_model
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_absolute_percentage_error
+
+df = stat.datasets.get_rdataset("mtcars", "datasets").data # load data "mtcars" from the R package 'datasets'
+
+# split data
+training_data, testing_data = train_test_split(df, test_size=0.2, random_state=25)
+
+# Create X and Y from training
+Y = training_data["mpg"] # response variable / outcome
+X = training_data.drop(columns=["mpg"]) #predictors / features
+reg =  linear_model.LinearRegression().fit(X,Y)
+
+# Create X and Y from testing
+Y_test = testing_data["mpg"] # response variable / outcome
+X_test = testing_data.drop(columns=["mpg"]) #predictors / features
+mpg_y_pred = reg.predict(X_test) # predictions
+
+print(reg.coef_)
+
+mean_absolute_percentage_error(y_true=Y_test,y_pred=mpg_y_pred)
+
+```
+
+## Visualization with Python {.unnumbered}
+
+Python offers multiple tools and libraries that come with a lot of features for data vizualisation and plotting. Among the popular libraries we have:
+
+-   [Matplotlib](https://matplotlib.org/){target="_blank"}
+-   [Seaborn](https://seaborn.pydata.org/){target="_blank"}
+-   [Plotly](https://plotly.com/python/){target="_blank"}
+
+The `matplotlib.pyplot` module is a collection of command style functions that make matplotlib work like `MATLAB`.
+
+#### A few plots! {.unnumbered}
+
+```{python }
+import matplotlib.pyplot as plt
+import numpy as np
+import matplotlib
+matplotlib.use('Agg') # To plot with Markdown
+
+x = np.linspace(0, 10, 100)
+plt.figure();
+plt.plot(x, np.sin(x))
+plt.plot(x, np.cos(x))
+plt.show()
+plt.close()
+```
+
+<!-- <img src="img/f1.png" -->
+
+<!--      alt="Figure 1" -->
+
+<!--      width=500px height=500px /> -->
+
+Read data from sklearn and vizualize
+
+```{python}
+import matplotlib.pyplot as plt
+import pandas as pd
+from sklearn.datasets import load_iris 
+import matplotlib
+matplotlib.use('Agg') # To plot with Markdown
+
+iris = load_iris()
+df_iris = pd.DataFrame(iris.data)
+df_iris.columns = iris.feature_names
+
+# Boxplot
+plt.figure();
+plt.boxplot(df_iris)
+plt.xticks([1, 2, 3, 4], iris.feature_names)
+plt.grid()
+plt.show()
+plt.close()
+
+#  histogram
+plt.figure();
+plt.hist(df_iris.iloc[:,0])
+plt.show()
+plt.close()
+```
+
+<!-- <img src="img/f2.png" -->
+
+<!--      alt="Figure 1" -->
+
+<!--      width=500px height=500px /> -->
+
+<!-- <img src="img/f3.png" -->
+
+<!--      alt="Figure 1" -->
+
+<!--      width=500px height=500px /> -->
+
+🛎 🎙️ Recordings on Canvas will cover more details and examples! Have fun learning and coding 😃! Let me know how I can help!
+
+## 📚 👈 Assignment - Python Stat/ML/Viz {.unnumbered}
+
+Instructions are posted on Canvas.

@@ -1,0 +1,326 @@
+# Python Basics - NumPy and Pandas {.unnumbered}
+
+At the end of this week, you will be able to:
+
+-   Practice with *Python* Basics
+-   Practice using **NumPy** and **Pandas** libraries
+-   Write your first *Python* script!
+
+## References {.unnumbered}
+
+-   *Python Data Science Handbook* [@Jake2016python]. [Free access](https://jakevdp.github.io/PythonDataScienceHandbook/00.00-preface.html){target="_blank"}
+-   *Think Python* [@Allenpython]. [Free access](https://greenteapress.com/thinkpython2/thinkpython2.pdf){target="_blank"}
+-   *Data Science and Analytics with Python* [@rogel2018data]
+
+## Introduction to Python {.unnumbered}
+
+**Python** has emerged over the last recent years as one of the most used tools for data science projects. It is known for code readability and interactive features. Similar to **R**, **Python** is supported by a [large number of packages](https://pypi.org/){target="_blank"} that extend its features and functions. Common packages are, to name few:
+
+-   [NumPy](https://numpy.org/doc/stable/){target="_blank"}: provides functions for manipulating arrays
+-   [Pandas](https://pandas.pydata.org/docs/){target="_blank"}: provides functions for manipulating data frames
+-   [Matplotlib](https://matplotlib.org/stable/tutorials/index.html){target="_blank"}: provides functions for visualizations and plotting
+-   [Statsmodels](https://www.statsmodels.org/stable/gettingstarted.html){target="_blank"}: provides functions for statistical models
+-   [Scikit-learn](https://scikit-learn.org/stable/){target="_blank"}: provides functions for machine learning algorithms
+
+## Getting started with Python {.unnumbered}
+
+We will use RStudio IDE to run Python but, there are other IDEs that you may want to check for your information such as [Pycharm](https://www.jetbrains.com/pycharm/){target="_blank"}, [Jupyter](https://jupyter.org/){target="_blank"}, and others. We will be using `Python 3`. We will see that there are multiple similarities between R and Python.
+
+> **Indentation** refers to the spaces at the beginning of a code line. The indentation in Python is very important.
+
+Recordings of this week provide lessons about the following concepts:
+
+## Python Basics {.unnumbered}
+
+-   Python Variables:
+
+```{python}
+# This is Python Code
+print("Hello World!")
+```
+
+You can name a variable following these rules:
+
+-   One word
+-   Use only letters, numbers, and the underscore (\_) character
+-   Can't begin with a number
+-   Python is case-sensitive
+
+```{python}
+x = "HeyHey"
+y = 40
+x
+y
+x, y = "Hey", 45 # Assign values to multiple variables
+print(x)
+print(y)
+ranks = ["first","second","third"] # list
+x, y, z = ranks
+print(ranks)
+x
+y
+z
+
+def myf():
+  x="Hello"
+  print(x)
+  
+myf()
+
+def myf():
+  global x # x to be global - outside the function
+  x="Hello"
+  print(x)
+  
+myf()
+
+```
+
+Data Types:
+
+```{python}
+x = str(3)    # x will be '3'
+x = int(3)    # x will be 3
+x = float(3)  # x is a float - 3.0
+x = 1j       # x is complex
+x = range(5,45)    # x is a range type
+x = [1,2,1,24,54,45,2,1]  # x is a list
+x = (1,2,1,24,54,45,2,1)  # x is a tuple
+x = {"name" : "Ach", "age" : 85}  # x is a dict (mapping)
+```
+
+Math operations:
+
+```{python}
+5+4   # Addition
+5*4   # Multiplication
+5**4  # power / exponent
+print("Hey"*3) # String operations
+import math as mt # More more math functions using package *math*
+mt.cos(556) # cosine function
+import random # generate random numbers
+print(random.randrange(1, 10))
+import numpy as np # generate random numbers
+print(np.random.normal(loc=0,scale=1,size=2))
+```
+
+Strings operations:
+
+```{python}
+word = "Hello There!"
+word[1] # accessing characters in a String
+for z in word:
+  print(z)
+
+len(word) # strings length
+
+"or" in word # check if "or" is in word
+word1 = "Do you use Python or R or both!"
+"or" in word1 # check if "or" is in word1
+
+```
+
+Python assignment operators:
+
+| Operator | Example    | Results     |
+|----------|------------|-------------|
+| =        | x = 10     | x = 10      |
+| +=       | x += 10    | x = x+10    |
+| -=       | x -= 10    | x = x-10    |
+| \*=      | x \*= 10   | x = x\*10   |
+| /=       | x /= 10    | x = x/10    |
+| %=       | x %= 10    | x = x%10    |
+| \*\*=    | x \*\*= 10 | x = x\*\*10 |
+|          |            |             |
+
+If-Else Statements:
+
+```{python}
+h = 2
+if h > 2:
+ print("Yes!") # indentation very important other ERROR
+elif h > 50:
+ print("Yes Yes!")
+else:
+  print("No")
+
+```
+
+For Loop Statements:
+
+```{python}
+for k in range(1,10): 
+  print(str(k)) # does not show up 10; goes up to 9
+  
+```
+
+## Python Numpy {.unnumbered}
+
+`NumPy` is a Python library. It stands for Numerical Python and very useful for manipulating arrays. It is faster than using Lists and quite useful for machine learning applications.
+
+```{python}
+import numpy # this code import NumPy library
+arr1 =  numpy.array([1,2,45,564,98]) # create array using NumPy
+print(arr1)
+```
+
+Usually, we give a Library an **alias** such as `np` for the NumPy library. Array objects in NumPy are called `ndarray`. We can pass any array (list, tuple, etc.) to the function `array()`:
+
+```{python}
+import numpy as np
+arr1 = np.array([1,2,45,564,98])
+print(arr1)
+
+# Multidimensional arrays!
+d0 = np.array(56)
+d1 = np.array([15, 52, 83, 84, 55])
+d2 = np.array([[1, 2, 3], [4, 5, 6]])
+d3 = np.array([[[1, 2, 3], [4, 5, 6]], [[11, 21, 31], [41, 51, 61]]])
+
+print(d0.ndim) # print dimension
+print(d1.ndim)
+print(d2.ndim)
+print(d3.ndim)
+
+```
+
+Array Indexing:
+
+```{python}
+import numpy as np
+
+D2 = np.array([[1,2,3,4,5], [6,7,8,9,10]], dtype=float)
+
+print('4th element on 1st dim: ', D2[0, 3])
+print('4th element on 2nd dim: ', D2[1, 3])
+print('1st dim: ', D2[0, :])
+
+arr = np.array([1, 2, 3, 4, 5, 6, 7])
+
+print("From the start to index 2 (not included): ", arr[:2])
+print("From the index 2 (included) to the end: ", arr[2:])
+```
+
+Arithmetic operations and Math/Stat functions:
+
+```{python}
+import numpy as np
+
+a = np.array([[1,2,3,4,5], [6,7,8,9,10]], dtype="f")
+b = np.array([[10,20,30,40,50], [60,70,80,90,100]], dtype="i")
+
+np.subtract(b,a) # b-a
+np.add(b,a) # b+a
+np.divide(b,a) # b/a
+np.multiply(b,a) # b*a
+np.exp(a) # exponential function
+np.log(a) # natural logarithm function
+np.sqrt(a) # square root function
+np.full((3,3),5) # 3x3 constant array
+a.mean() # mean 
+a.std() # standard deviation
+a.var() # variance
+a.mean(axis=0) # mean across axis 0 (rows)
+np.median(a) # median 
+np.median(a,axis=0) # median 
+```
+
+Random numbers generation:
+
+**Random** is a module in `NumPy` to offer functions to work with random numbers.
+
+```{python}
+from numpy import random
+
+x = random.randint(100) # a random integer from 0 to 100
+print(x)
+
+x = random.rand(10) # 10 random numbers float from 0 to 1
+print(x)
+
+x = random.randint(100,size=(10)) # 10 random integers from 0 to 100
+print(x)
+
+x = random.randint(100,size=(10,10)) # 10x10 random integers from 0 to 100
+print(x)
+
+x = random.choice([100,12,0,45]) # sample one value from an array
+print(x)
+
+x = random.choice([100,12,0,45],size=(10)) # sample one value from an array
+print(x)
+
+x = random.choice([100, 12, 0, 45], p=[0.1, 0.3, 0.6, 0.0], size=(10)) # Probability sampling
+print(x)
+
+x = random.normal(loc=1, scale=0.5, size=(10)) # Normal distribution
+print(x)
+
+x = random.normal(loc=1, scale=0.5, size=(10)) # Normal distribution
+print(x)
+
+```
+
+📚 For more reading visit [Introduction to NumPy](https://jakevdp.github.io/PythonDataScienceHandbook/02.00-introduction-to-numpy.html){target="_blank"}.
+
+## Python Pandas {.unnumbered}
+
+`Pandas` is a Python library. It is useful for data wrangling and working with data sets. `Pandas` refers to both *Panel Data* and *Python Data Analysis*. This is a handy [Cheat Sheet for Pandas](https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf){target="_blank"} for data wrangling.
+
+```{python}
+import pandas as pd
+
+a = [1,6,8]
+series = pd.Series(a) # this is a panda series
+print(series)
+
+mydata = {
+  "calories": [1000, 690, 190],
+  "duration": [50, 40, 20]
+}
+mydataframe = pd.DataFrame(mydata) # data frame
+mydataframe
+```
+
+Read CSV Files
+
+CSV files are a simple way to store large data sets. Data Frame Pandas can read CSV files easily:
+
+```{python}
+import pandas as pd
+import numpy as np
+
+df = pd.read_csv("../datasets/mycars.csv")
+print(df.info()) # Info about Data
+
+df.head()
+
+df.loc[3,"speed"] = np.NaN # insert NaN in the row 10 in speed column
+df.head()
+
+newdf = df.dropna() # drop NA cells
+newdf.head()
+
+df.dropna(inplace = True) # drop NA cells and replace "df" with the new data
+df.head()
+
+df = pd.read_csv("../datasets/mycars.csv")
+df.fillna(100, inplace = True) # replace NA values with 100.
+
+df["speed"].fillna(10, inplace = True) # replace NA values with 10 only in column "speed"
+
+x = df["speed"].mean() # find mean of speed
+df["speed"].fillna(x, inplace = True) # replace NA values with mean only in column "speed"
+
+
+print(df.duplicated().head()) # show duplicates
+df.drop_duplicates().head() # drop duplicates
+
+
+```
+
+🛎 🎙️ Recordings on Canvas will cover more details and examples! Have fun learning and coding 😃! Let me know how I can help!
+
+## 📚 👈 Assignments - Python Basics {.unnumbered}
+
+Instructions are posted on Canvas.

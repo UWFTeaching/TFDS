@@ -1,0 +1,54 @@
+# Introduction {.unnumbered}
+
+<!-- This eBook is used for TFDS -**Tools for Data Science**- course offered at [the University of West Florida, Mathematics and Statistics Department](https://uwf.edu/hmcse/departments/mathematics-and-statistics/){target="_blank"}. -->
+
+An 8-Week course on tools for data science using R, Python, SQL, and Spark. Throughout the course, there will be hands-on exercises with computing resources. The course will include introductions to several packages in R, particularly Tidyverse, libraries in Python such as Pandas/NumPy/Statsmodels, SQL clauses and summary statistics, and Spark framework for distributed computing.
+
+### Learning outcomes {.unnumbered}
+
+-   Develop programming skills
+-   Write codes using R, Python, and SQL
+-   Show the ability to manage, wrangle, and visualize data
+-   Practice with Spark for distributed processing
+-   Compare statistical summaries using SQL, R and Python
+-   Create and evaluate scripts to answer data driven problems
+
+### Topics {.unnumbered}
+
+-   Introduction to R/RStudio
+-   Programming using R
+-   Introduction to Python
+-   Programming using Python
+-   Introduction to SQL
+-   Introduction to Spark
+-   Data input and output
+-   Data manipulation
+-   Summary statistics
+-   Statistical and mathematical functions
+-   Graphics and data visualization
+
+Note that the focus of the course will be learning programming using R and Python from the very basics. We will explore the usage of SQL and Spark for querying and processing data. We will learn and practice coding concepts and programming practices that are universal but relevant to data science projects and workflow.
+
+### Organization and Evaluation {.unnumbered}
+
+Each week, we will have 2 tasks to complete as follows:
+
+| Days                  | To do                            | Due day             |
+|---------------------|------------------------------|---------------------|
+| Mondays to Wednesdays | Reading/Watch recordings         | NA                  |
+| Wednesdays to Mondays | Practice and Discuss (credit 5%) | Monday\@11:59 pm CT |
+|                       |                                  |                     |
+
+Every two weeks we will have an **Individual project** (credit 10%) to complete.
+
+### Readings {.unnumbered}
+
+In addition to material provided in this course, I highly encourage reading and reviewing some of the material, I will be pointing out throughout the course, including:
+
+-   *R for Data Science* [@wickham2016r]. It is available [free online](https://r4ds.had.co.nz/){target="_blank"}.
+-   *Hands-On Programming with R* [@grolemund2014hands]. It is available [free online](https://rstudio-education.github.io/hopr/){target="_blank"}.
+-   *Exploring Enterprise Databases with R: A Tidyverse Approach* [@databaser2020]
+-   *Mastering Spark with R* [@luraschi2019mastering]. It is available [free online](https://therinspark.com/index.html){target="_blank"}.
+-   *Practical Guide for Oracle SQL, T-SQL and MySQL* [@zhang2017practical]
+-   *Think Python* [@Allenpython]
+-   *Data Science and Analytics with Python* [@rogel2018data]

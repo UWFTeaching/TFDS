@@ -1,0 +1,204 @@
+# R Tidyverse {.unnumbered}
+
+At the end of this week, you will be able to:
+
+-   Use R packages especially [Tidyverse](https://www.tidyverse.org/){target="_blank"}
+-   Identify `Tidy` data
+-   Practice with pipe operator `%>%`, `select()`, `filter()`,... for data wrangling
+-   Visualization using `ggplot2` package.
+
+All [Cheat Sheets](https://www.rstudio.com/resources/cheatsheets/){target="_blank"} are very useful!
+
+## Tidy data {.unnumbered}
+
+A data is said to be [tidy](https://vita.had.co.nz/papers/tidy-data.html){target="_blank"} [@tidy-data] format if each column represents a variable and each row represents an observation. Example of data that is *NOT* `tidy` is the `relig_income` data set in `tidyr` package:
+
+```{r echo=T, results='asis', warning=FALSE,message=FALSE}
+# load a libraries
+library(knitr) # fancy table
+library(tidyverse) # load library tidyverse
+# To display fancy tables
+kable(head(relig_income,10))
+```
+
+It is obvious that each column does not represent a variable. Variable `salary` could be a better fit to the values we have in the columns headings (\<\$10k, etc.). Another variable can be created to store values in the entry table (27, 34,...). These are the number of time we have a response - counts -. To make it `tidy` we need then to *pivot* the values columns into a two-column key-value pair. Let's name the values in the header `income` and values in the table `counts.` To do that we can run the following code:
+
+```{r echo=T, results='asis', warning=FALSE,message=FALSE}
+# pivot a table/data frame
+pivot_longer(relig_income,-religion,names_to='income',values_to = "count") -> tidydata
+# To display fancy tables
+kable(head(tidydata,n = 12))
+```
+
+## Manipulating data {.unnumbered}
+
+`dplyr` package is designed to perform some of the widely used operations when working with `data.frame` or `tibble`. - The [`dplyr` Cheet Sheet](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf){target="_blank"}. When manipulating data, you may want to:
+
+-   Subset the data to contain only row (observations) you are interested in
+-   Subset the data to contain only columns (variables) you are interested in
+-   Create new variables and add them to the data
+-   aggregate the data
+
+To achieve these operations and more, the package `dplyr`offers the following functions:
+
+| Function    | Action                |
+|-------------|-----------------------|
+| filter()    | subset rows           |
+| select()    | subset variables      |
+| mutate()    | create a new variable |
+| arrange()   | sort                  |
+| summarize() | aggregate the data    |
+| ----------  | ---------             |
+
+Here is an example:
+
+```{r echo=T, results='asis', warning=FALSE,message=FALSE}
+# pivot a table/data frame
+pivot_longer(relig_income,-religion,names_to='income',values_to = "count") -> tidydata
+# Select data where income is < $10k
+kable(head(filter(tidydata,income=="<$10k")))
+# Select data where income is < $10k
+kable(head(arrange(tidydata,desc(count))))
+```
+
+## Pipe operator `%>%` {.unnumbered}
+
+The pipe operator `%>%` allows us to perform a series of functions without storing the outcomes of each function. For example:
+
+```{r echo=T, results='asis', warning=FALSE,message=FALSE}
+library(dplyr)
+sqrt(log(25))
+#is the same as
+25 %>% 
+  log %>% 
+  sqrt
+```
+
+We often start with our data and then apply functions sequentially. The benefit of the pipe operator is more evident when dealing with complex operations.
+
+## Summarizing data {.unnumbered}
+
+One of the tasks in statistics is to summarize data. Let's look into this example using data `chickwts` about Chicken weights and diet. It has two variables `weight` and `feed`:
+
+```{r}
+# See what is in the data
+str(chickwts)
+# Mean and standard deviation of the weight
+chickwts %>% 
+  summarise(mean.weight=mean(weight),s.weight=sd(weight))
+# Mean and standard deviation of the weight by group
+chickwts %>% 
+  group_by(feed) %>% 
+  summarise(mean.weight=mean(weight),s.weight=sd(weight), nbr.chick=n())
+# Select groups `casein`, `linseed`, and `soybean`
+chickwts %>% 
+  filter(feed %in% c("casein","linseed","soybean")) %>% 
+  group_by(feed) %>% 
+  summarise(mean.weight=mean(weight),s.weight=sd(weight), nbr.chick=n())
+```
+
+## Data visualization using `ggplot2` {.unnumbered}
+
+`ggplot2` package is dedicated to data visualization. It can greatly improve the quality and aesthetics of your graphics, and will make you much more efficient in creating them. `gg` stands for *grammar of graphics*.
+
+This link [The R Graph Gallery](https://www.r-graph-gallery.com/index.html){target="_blank"} provides a gallery of graphs created using R. A good place to get inspired and learn some advanced visualizations.
+
+Let consider the following example:
+
+```{r}
+
+#Demographic information of midwest counties from 2000 US census
+kable(head(midwest))
+# Get started - `area` and `poptotal` are variable in `midwest`
+ggplot(midwest,aes(x=area,y=poptotal))
+```
+
+What we see here is a blank ggplot! ggplot does not plot by default a scatter or a line chart! We would need to decide next what should we plot! Let's make a scatter plot.
+
+```{r}
+
+ggplot(midwest,aes(x=area,y=poptotal)) + 
+  geom_point()
+```
+
+Yaay! we did it. Next, let's add a linear regression model: $poptotal = \beta_0 + \beta_1 area$.
+
+```{r message=F, warning=F, echo=F, results='asis'}
+
+ggplot(midwest,aes(x=area,y=poptotal)) + 
+  geom_point() + 
+  geom_smooth(method = "lm",se = TRUE) # se adds confidence bands
+```
+
+To control *x* and *y* axis limits, we can use `xlim()` and `ylim()` as follows:
+
+```{r message=F, warning=F, echo=F, results='asis'}
+
+g1 = ggplot(midwest,aes(x=area,y=poptotal)) + 
+  geom_point() + 
+  geom_smooth(method = "lm",se = TRUE) # se adds confidence bands
+
+g1 + 
+  xlim(c(0,0.1)) + 
+  ylim(c(0,10^6)) 
+
+```
+
+Notice that the line we obtain here is different from the line from the first fit (all data included). This happens because ggplot will refit the model `lm()` to data without the observations that are outside the ranges. This is useful if we want to examine changes in the model line when extreme values (or outliers) are removed.
+
+We can also keep the model as the original plot and zoom in using:
+
+```{r message=F, warning=F, echo=F, results='asis'}
+
+g1 = ggplot(midwest,aes(x=area,y=poptotal)) + 
+  geom_point() + 
+  geom_smooth(method = "lm",se = TRUE) # se adds confidence bands
+
+g1 + 
+  coord_cartesian(xlim=c(0,0.1),ylim=c(0,10^6))
+```
+
+Let's Add some fancy options:
+
+```{r message=F, warning=F, echo=F, results='asis'}
+
+  midwest %>% 
+    ggplot(aes(x=area,y=poptotal)) + 
+    geom_point(col="red",size=2.5, pch=1) +
+    geom_smooth(method = "lm",se = TRUE,col="yellow") + 
+    coord_cartesian(xlim=c(0,0.1),ylim=c(0,10^6)) +
+    labs(title="Area vs. Population",
+         subtitle = "From midwest data", 
+         y="Population", 
+         x="Area", 
+         caption="Midwest Demogprahics") 
+```
+
+Wow! What about adding a new variable to the plot! For example, adding `state` variable. Let's change the color to match the `state` where a data point belongs to; `state` is a variable in the `midwest` dataset.
+
+```{r message=F, warning=F, echo=F, results='asis'}
+
+midwest %>%
+  ggplot(aes(x=area,y=poptotal)) + 
+  geom_point(aes(col=state),size=2.5, pch=20) + 
+  geom_smooth(method = "lm",se = TRUE,col="yellow") + 
+  coord_cartesian(xlim=c(0,0.1),ylim=c(0,10^6)) +
+  labs(title="Area vs. Population",
+       subtitle = "From midwest data", 
+       y="Population", x="Area", 
+       caption="Midwest Demogprahics") 
+```
+
+## And more... {.unnumbered}
+
+Lessons of this week provide more about `tidyverse`. The following will be covered more in details:
+
+-   Data manipulation (`filter`, `select`, `mutate`, `arrange`, `summarize`, and etc.)
+-   `ggplot2` package for data visualization.
+-   An extended example <!-- using  --> <!-- [Sean Lahman's baseball database](http://www.seanlahman.com/baseball-archive/statistics/){target="_blank"}. -->
+
+🛎 🎙️ Recordings on Canvas will cover more details and examples! Have fun learning and coding 😃! Let me know how I can help!
+
+## 📚 👈 Assignment - R Tidyverse {.unnumbered}
+
+Instructions are posted on Canvas.

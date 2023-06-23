@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.269">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Achraf Cohen, PhD">
+<meta name="dcterms.date" content="2022-12-31">
+
+<title>Tools for Data Science</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./s4ds.html" rel="next">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Tools for Data Science</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Tools for Data Science</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link active">Welcome to TS4DS</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./s4ds.html" class="sidebar-item-text sidebar-link">Statistics for Data Science</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./s4ds/index.html" class="sidebar-item-text sidebar-link">Introduction</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./s4ds/week1.html" class="sidebar-item-text sidebar-link">Descriptive statistics</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./s4ds/week2.html" class="sidebar-item-text sidebar-link">Confidence Intervals and Hypothesis Testing</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./s4ds/week3.html" class="sidebar-item-text sidebar-link">One sample testing</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./s4ds/week4.html" class="sidebar-item-text sidebar-link">Two samples testing</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./s4ds/week5.html" class="sidebar-item-text sidebar-link">More than two samples testing - ANOVA</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./s4ds/week6.html" class="sidebar-item-text sidebar-link">Multiple comparisons</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./s4ds/week7.html" class="sidebar-item-text sidebar-link">Regression analysis</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./s4ds/references.html" class="sidebar-item-text sidebar-link">References</a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#welcome-to-ts4ds" id="toc-welcome-to-ts4ds" class="nav-link active" data-scroll-target="#welcome-to-ts4ds">Welcome to TS4DS</a>
+  <ul class="collapse">
+  <li><a href="#topics" id="toc-topics" class="nav-link" data-scroll-target="#topics">Topics</a></li>
+  <li><a href="#readings" id="toc-readings" class="nav-link" data-scroll-target="#readings">Readings</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Tools for Data Science</h1>
+<p class="subtitle lead">TS4DS</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Achraf Cohen, PhD </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 31, 2022</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="./logo.png" class="img-fluid figure-img" alt="Tools and Statistics For Data Science" width="262"></p>
+</figure>
+</div>
+<section id="welcome-to-ts4ds" class="level1 unnumbered">
+<h1 class="unnumbered">Welcome to TS4DS</h1>
+<p>This eBook is used for <strong>Tools and Statistics for Data Science</strong> (TS4DS) courses offered at [the University of West Florida, Mathematics and Statistics Department](https://uwf.edu/hmcse/departments/mathematics-and-statistics/){target=“_blank”}</p>
+<p>An 8-Week course on <strong>Statistics for data science 1</strong> using R or SAS.</p>
+<p>An 8-Week course on <strong>Tools for data science</strong> using R, Python, and SQL. Throughout the course, there will be hands-on exercises with computing resources. The course will include introductions to several packages in R, particularly Tidyverse, libraries in Python such as Pandas/NumPy/Statsmodels, SQL clauses and summary statistics, and Spark framework for distributed computing.</p>
+<section id="topics" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="topics">Topics</h3>
+<ul>
+<li>Introduction to R/RStudio</li>
+<li>Programming using R</li>
+<li>Introduction to Python</li>
+<li>Programming using Python</li>
+<li>Introduction to SQL</li>
+<li>Data input and output</li>
+<li>Data manipulation</li>
+<li>Summary statistics</li>
+<li>Statistical and mathematical functions</li>
+<li>Graphics and data visualization</li>
+<li>Hypothesis testing</li>
+<li>Regression</li>
+<li>t-tests, ANOVA</li>
+<li>Nonparametric tests</li>
+</ul>
+</section>
+<section id="readings" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="readings">Readings</h3>
+<p>In addition to material provided in this course, I highly encourage reading and reviewing some of the material, I will be pointing out throughout the course, including:</p>
+<ul>
+<li><em>R for Data Science</em> <span class="citation" data-cites="wickham2016r">(<a href="#ref-wickham2016r" role="doc-biblioref">Wickham and Grolemund 2016</a>)</span>. It is available <a href="https://r4ds.had.co.nz/" target="_blank">free online</a>.</li>
+<li><em>Hands-On Programming with R</em> <span class="citation" data-cites="grolemund2014hands">(<a href="#ref-grolemund2014hands" role="doc-biblioref">Grolemund 2014</a>)</span>. It is available <a href="https://rstudio-education.github.io/hopr/" target="_blank">free online</a>.</li>
+<li><em>Exploring Enterprise Databases with R: A Tidyverse Approach</em> <span class="citation" data-cites="databaser2020">(<a href="#ref-databaser2020" role="doc-biblioref">John David et al. 2020</a>)</span></li>
+<li><em>Mastering Spark with R</em> <span class="citation" data-cites="luraschi2019mastering">(<a href="#ref-luraschi2019mastering" role="doc-biblioref">Luraschi, Kuo, and Ruiz 2019</a>)</span>. It is available <a href="https://therinspark.com/index.html" target="_blank">free online</a>.</li>
+<li><em>Practical Guide for Oracle SQL, T-SQL and MySQL</em> <span class="citation" data-cites="zhang2017practical">(<a href="#ref-zhang2017practical" role="doc-biblioref">Zhang 2017</a>)</span></li>
+<li><em>Think Python</em> <span class="citation" data-cites="Allenpython">(<a href="#ref-Allenpython" role="doc-biblioref">Downey 2015</a>)</span></li>
+<li><em>Data Science and Analytics with Python</em> <span class="citation" data-cites="rogel2018data">(<a href="#ref-rogel2018data" role="doc-biblioref">Rogel-Salazar 2018</a>)</span></li>
+</ul>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-Allenpython" class="csl-entry" role="doc-biblioentry">
+Downey, Allen. 2015. <em>Think Python How to Think Like a Computer Scientist</em>. Green Tea Press Needham, Massachusetts.
+</div>
+<div id="ref-grolemund2014hands" class="csl-entry" role="doc-biblioentry">
+Grolemund, Garrett. 2014. <em>Hands-on Programming with r: Write Your Own Functions and Simulations</em>. " O’Reilly Media, Inc.".
+</div>
+<div id="ref-databaser2020" class="csl-entry" role="doc-biblioentry">
+John David, Smith, Yang Sophie, Borasky M. Edward (Ed), Tyhurst Jim, Came Scott, Thygesen Mary Anne, and Frantz Ian. 2020. <em>Exploring Enterprise Databases with r: A Tidyverse Approach</em>. <a href="https://smithjd.github.io/sql-pet/">https://smithjd.github.io/sql-pet/</a>.
+</div>
+<div id="ref-luraschi2019mastering" class="csl-entry" role="doc-biblioentry">
+Luraschi, Javier, Kevin Kuo, and Edgar Ruiz. 2019. <em>Mastering Spark with r: The Complete Guide to Large-Scale Analysis and Modeling</em>. O’Reilly Media.
+</div>
+<div id="ref-rogel2018data" class="csl-entry" role="doc-biblioentry">
+Rogel-Salazar, Jesus. 2018. <em>Data Science and Analytics with Python</em>. CRC Press.
+</div>
+<div id="ref-wickham2016r" class="csl-entry" role="doc-biblioentry">
+Wickham, Hadley, and Garrett Grolemund. 2016. <em>R for Data Science: Import, Tidy, Transform, Visualize, and Model Data</em>. " O’Reilly Media, Inc.".
+</div>
+<div id="ref-zhang2017practical" class="csl-entry" role="doc-biblioentry">
+Zhang, Preston. 2017. <em>Practical Guide for Oracle SQL, t-SQL and MySQL</em>. CRC Press.
+</div>
+</div>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./s4ds.html" class="pagination-link">
+        <span class="nav-page-text">Statistics for Data Science</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

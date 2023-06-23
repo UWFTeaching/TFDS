@@ -1,0 +1,38 @@
+![](/logo.png){alt="TFDS Course" fig-alt="Tools and Statistics For Data Science" fig-align="left" width="262"}
+
+# Welcome to TS4DS {.unnumbered}
+
+This eBook is used for **Tools and Statistics for Data Science** (TS4DS) courses offered at \[the University of West Florida, Mathematics and Statistics Department\](https://uwf.edu/hmcse/departments/mathematics-and-statistics/){target="\_blank"}
+
+An 8-Week course on **Statistics for data science 1** using R or SAS.
+
+An 8-Week course on **Tools for data science** using R, Python, and SQL. Throughout the course, there will be hands-on exercises with computing resources. The course will include introductions to several packages in R, particularly Tidyverse, libraries in Python such as Pandas/NumPy/Statsmodels, SQL clauses and summary statistics, and Spark framework for distributed computing.
+
+### Topics {.unnumbered}
+
+-   Introduction to R/RStudio
+-   Programming using R
+-   Introduction to Python
+-   Programming using Python
+-   Introduction to SQL
+-   Data input and output
+-   Data manipulation
+-   Summary statistics
+-   Statistical and mathematical functions
+-   Graphics and data visualization
+-   Hypothesis testing
+-   Regression
+-   t-tests, ANOVA
+-   Nonparametric tests
+
+### Readings {.unnumbered}
+
+In addition to material provided in this course, I highly encourage reading and reviewing some of the material, I will be pointing out throughout the course, including:
+
+-   *R for Data Science* [@wickham2016r]. It is available [free online](https://r4ds.had.co.nz/){target="_blank"}.
+-   *Hands-On Programming with R* [@grolemund2014hands]. It is available [free online](https://rstudio-education.github.io/hopr/){target="_blank"}.
+-   *Exploring Enterprise Databases with R: A Tidyverse Approach* [@databaser2020]
+-   *Mastering Spark with R* [@luraschi2019mastering]. It is available [free online](https://therinspark.com/index.html){target="_blank"}.
+-   *Practical Guide for Oracle SQL, T-SQL and MySQL* [@zhang2017practical]
+-   *Think Python* [@Allenpython]
+-   *Data Science and Analytics with Python* [@rogel2018data]

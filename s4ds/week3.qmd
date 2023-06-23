@@ -1,0 +1,262 @@
+# One sample testing {.unnumbered}
+
+At the end of this week, you will be able to:
+
+-   Identify *Structured Query Language* queries
+-   Write your first SQL queries
+
+Let's start with defining the basics.
+
+## Database {.unnumbered}
+
+A *database* is an organized collection of data stored and accessed electronically from a computer system. A Database Management System (DBMS) is a software that is used to manage databases.
+
+![Data Science](/img/DSWorkflow.png){alt="Data Science"}
+
+In order to work with data that are stored in databases we need a language. *SQL* is a standard computer language for relational database management systems (RDBMS). It is used for storing, manipulating and retrieving data in databases.
+
+*SQL* has various dialects such as PL/SQL (Oracle), T-SQL (Microsoft), and others.
+
+In this course, we will use **SQL Server Management Studio** hosted at UWF servers. We will use the fictional company [Adventure Works data](https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008/ms124623(v=sql.100)){target="_blank"}.
+
+Information about accessing the SQL Server is posted on Canvas.
+
+### Basic concepts {.unnumbered}
+
+When dealing with databases we will need to know what is:
+
+-   **Entity**: is any thing the data represents in a database. For example, `Students`, `Employees`, `Schools`, `Departments`, etc. There are given as tables.
+
+-   **Data Type**: We need to pick a data type for each column when creating a table. There are common data types including `INTEGER`, `FLOAT`, `CURRENCY`, `DATE`, `BOOLEAN`, and etc.
+
+-   **Data Definition Language (DDL)**: DDL commands are used to create or modify database structures. `CREATE`, `ALTER`, and `DROP` are examples of DDL commands.
+
+-   **Data Manipulation Language (DML)**: DML commands are used to insert, retrieve, or modify data. `INSERT`, `DELETE`, and `UPDATE` are examples of DML commands.
+
+-   **Data Control Language (DCL)**: DCL commands are used to create rights and permission. `GRANT` and `REVOKE` are examples of DCL commands.
+
+-   **Query**: Data scientists use a query to get data or information from database tables.
+
+## Data Language {.unnumbered}
+
+Now that we have access to [SQL server system](https://argoapps.uwf.edu/vpn/index.html){target="_blank"}, we are ready to manipulate some data and execute *SQL* queries. *SQL* statements are divided into **3 categories**: DDL, DML, and DCL. We can execute *SQL* queries using *SQL Command* or using Graphic User Interface (*GUI*). We shall present next common statements for DDL and DML.
+
+### Data Definition Language (DDL) {.unnumbered}
+
+The DDL statements are used to create databases and tables. Here is a list of some of the statements:
+
+-   SQL commands to create a *database*:
+
+::: rmdnote
+<p align="left">
+
+**`CREATE DATABASE`**`database_name;`
+
+</p>
+:::
+
+-   SQL commands to delete a *database*:
+
+::: rmdnote
+<p align="left">
+
+**`DROP DATABASE`**`database_name;`
+
+</p>
+:::
+
+⚠️ be very careful to drop databases or tables!
+
+-   SQL commands to create a *Table*:
+
+::: rmdnote
+<p align="left">
+
+**`CREATE TABLE`**`table_name;`
+
+</p>
+:::
+
+-   SQL commands to create a *Table* from an existing table:
+
+::: rmdnote
+<p align="left">
+
+**`SELECT... INTO`**`table_name`<br/> **`FROM`** `Orginal_table`
+
+</p>
+:::
+
+-   SQL commands to drop a *Table*:
+
+::: rmdnote
+<p align="left">
+
+**`DROP TABLE`**`table_name;`
+
+</p>
+:::
+
+-   SQL commands to truncating (remove all records from a table) a *Table*:
+
+::: rmdnote
+<p align="left">
+
+**`TRUNCATE TABLE`**`table_name;`
+
+</p>
+:::
+
+### **Data Maniplulation Language (DML)** {.unnumbered}
+
+The DDL statements are used to insert data, update records, and delete records. Data Manipulation Language is used to manipulate data. Here is a list of the main statements:
+
+-   SQL commands to insert one or more records into a *Table*:
+
+::: rmdnote
+<p align="left">
+
+**`INSERT INTO`**`table_name(col1,col2,...)` <br/> **`VALUES`**`(exp1,exp2,...);`
+
+</p>
+:::
+
+::: rmdnote
+<p align="left">
+
+**`INSERT INTO`**`table_name` <br/> **`VALUES`**`(exp1,exp2,...);`
+
+</p>
+:::
+
+⚠️ Make sure you insert data in the same order as that in the table for the second syntax.
+
+-   SQL commands to select records from one or more *Tables*:
+
+::: rmdnote
+<p align="left">
+
+**`SELECT`**`column(s)` <br/> **`FROM`**`tables`<br/> **`WHERE`**`conditions` (optional)<br/> **`ORDER BY`** `column(s)ASC | DESC;` (optional)
+
+</p>
+:::
+
+-   `DISTINCT` clause to eliminate duplicates:
+
+::: rmdnote
+<p align="left">
+
+**`SELECT DISTINCT`**`column_name` <br/> **`FROM`**`table_name;`<br/>
+
+</p>
+:::
+
+-   `WHERE` clause to filter if the condition is true:
+
+::: rmdnote
+<p align="left">
+
+**`SELECT`**`column(s)` <br/> **`FROM`**`table_name`<br/> **`WHERE`**`conditions;`<br/>
+
+</p>
+:::
+
+-   Arithmetic operators
+
+::: rmdnote
+<p align="left">
+
+**`SELECT`**`column_name1, column_name2, column_name2*2 AS 'twicecolumn2'` <br/> **`FROM`**`table_name;`<br/>
+
+</p>
+:::
+
+Basic **arithmetic** operators include: **`%`**`modulo`, **`/`**`division`, **`*`**`multiplication`, **`+`**`addition`, and **`-`**`substraction`.
+
+Basic **comparison** operators include: **`=`**`equal to`, **`<>`**`not equal to`, **`>`**`greater than`, **`>=`**`greater than equal to`, and more.
+
+Basic **condition** operators include: **`AND`**`all conditions must be true to get true`, **`OR`**`Any one of the conditions must be true to get true`, **`IN`**`test if an expression matches any value in a list of VALUES`, **`BETWEEN`**`check if an experession is within a range of VALUES`, and more.
+
+-   `ORDER BY` clause to sort the records:
+
+::: rmdnote
+<p align="left">
+
+**`SELECT`**`column(s)` <br/> **`FROM`**`table_name`<br/> **`WHERE`**`conditions`<br/> **`ORDER BY`**`expression (by default ASC);`
+
+</p>
+:::
+
+-   `UPDATE` statement to update records:
+
+::: rmdnote
+<p align="left">
+
+**`UPDATE`**`table` <br/> **`SET`**`col1 = value1, col2 = value2, ...`<br/> **`WHERE`**`conditions [optional];`
+
+</p>
+:::
+
+-   `DELETE` statement to delete records:
+
+::: rmdnote
+<p align="left">
+
+**`DELETE FROM`**`table` <br/> **`WHERE`**`conditions [optional];`
+
+</p>
+:::
+
+## Functions and GROUP BY {.unnumbered}
+
+Often you will be asked to answer questions that involve writing queries for summaries using aggregate function and `GROUP BY` clause.
+
+-   **SQL commands for Aggregate statements**:
+
+::: rmdnote
+<p align="left">
+
+**`SELECT Aggregate Function`**`column_name` <br/> **`FROM`**`table_name;`
+
+</p>
+:::
+
+Below are the main aggregate functions:
+
+| Function  | Action                                                                                              |
+|-----------|-----------------------------------------------------------------------------------------------------|
+| `AVG()`   | average values                                                                                      |
+| `COUNT()` | count the number of rows in a table                                                                 |
+| `MAX()`   | select the highest value <br/> select the latest date <br/>select the last record for a character   |
+| `MIN()`   | select the lowest value <br/> select the earliest date <br/>select the first record for a character |
+| `SUM()`   | return the total for a numeric column                                                               |
+| `ROUND()` | round a number to specific decimal                                                                  |
+|           |                                                                                                     |
+
+In addition to aggregate functions, there are other type of functions:
+
+\-*The **number** functions* take a numeric as an input and return a numeric value. The common number functions include `CEILING()`, `FLOOR()`, `%`, `POWER(m,n)` \[$m^n$\], `SQRT()`, and `ROUND()`.
+
+\-*The **string** functions*. The common string functions include `CONCAT()`, `LEFT()`, `LEN()`, `LOWER()`, `REPLACE()`, `RIGHT()`, `UPPER()`, and `SUBSTRING()`.
+
+\-*The **Date and Time** functions*. The common date and time functions include `CURRENT_TIMESTAMP()`, `DATEADD()`, `DATEPART()`, `GETDATE()`, `DATEDIFF()`, and `SYSDATETIME()`.
+
+\-*The **Conversion** functions*. The common conversion functions include `CAST()` and `CONVERT()`.
+
+-   **GROUP BY and HAVING Clause**:
+
+The GROUP BY statement is used to group data from a column. HAVING clause is used with a GROUP BY to add conditions on groups.
+
+::: rmdnote
+<p align="left">
+
+**`SELECT Aggregate Function`**`column_name` <br/> **`FROM`**`table_name`<br/> **`WHERE`**`conditions - optional`<br/> **`GROUP BY`**`column_name`<br/> **`HAVING`**`conditions - optional`<br/> **`ORDER BY`**`column(s) [ASC | DESC] - optional;`
+
+</p>
+:::
+
+🛎 🎙️ Recordings on Canvas will cover more details and examples! Have fun learning and coding 😃! Let me know how I can help!
+
+## 📚 👈 Assignments - SQL basics {.unnumbered}
+
+Instructions are posted on Canvas.

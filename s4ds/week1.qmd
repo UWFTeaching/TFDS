@@ -1,0 +1,207 @@
+# Descriptive statistics {.unnumbered}
+
+At the end of this week, you will be able to:
+
+-   Show an understanding of data science workflow
+-   Start your computing environment
+-   Write your first code using R
+-   Practice with basic R programming tools such as `for loop`, `data frames`, etc.
+
+## Data Science? {.unnumbered}
+
+<!-- ![](img/DSTools.pdf){width=15in,height=10in} -->
+
+The use of data as evidence is crucial but, it is not something novel. If we examine a definition of the field of *statistics*, we can observe that is given as four subtopics:
+
+-   Data Collection
+-   Data Analysis
+-   Results Interpretation
+-   Data Visualization
+
+Originally, *statistics* was viewed as the analysis and interpretation of information about states. And science is understood as organized knowledge in the form of testable explanations and predictions about the universe.
+
+So, what is data science? Data science is more than just using statistics and data to answer scientific questions.
+
+> Nowadays, data science is viewed as the use of various sources of data to extract knowledge and provide insights using multiple skills including programming, math and statistics, and communication.
+
+Venn diagram by Drew Conway provides a visualization on data science.
+
+<p align="center">
+
+</figure>
+
+![](/img/DSvenn.png){alt="Data Science Venn diagram" fig-alt="Data Science Venn diagram"}
+
+<figcaption align="center">
+
+<b>Data Science Venn diagram by Drew Conway</b>
+
+</figcaption>
+
+</figure>
+
+</p>
+
+Typical examples of data science projects:
+
+-   **Market analysis** What product will sell better in conjunction with another popular product
+-   **Market segmentation** Are there distinguishable features that characterize different groups of sales agents, customers or businesses?
+-   **Advertising and marketing** What advertisement should be placed on what site?
+-   **Fraud** How to detect if a retail/finance transaction is valid or not?
+-   **Demand forecasting** What is the demand for a particle service at a specific time/place?
+-   **Classification** Emails classification (spam vs. valid email)
+
+### Tools for Data Science {.unnumbered}
+
+Data science helps managers, engineers, policymakers, and researchers - almost everybody - to make informed decisions based on evidence from data. Computers and technologies have empowered how much data we can store, manipulate, and analyze. To enable these functions, technologies and tools are developed to help us to be more productive and efficient when conducting data science projects.
+
+![Data Science Workflow](/img/DSWorkflow.png){alt="Data Science Workflow"}
+
+The technologies deployed in the analytics and data science have advanced very fast and multiple open source projects exist, for example:
+
+-   Data framework: [Hadoop](https://hadoop.apache.org/){target="_blank"}, [Spark](https://spark.apache.org/){target="_blank"},...
+-   Query Languages: SQL, SQL-like,...
+-   Data manipulation, modeling, and graphing: R, Python,...
+-   Software management: Git, [GitHub](https://github.com/){target="_blank"},...
+
+### Data Science Workflow {.unnumbered}
+
+Often, the data science process is iterative. Some steps in the data science workflow include:
+
+1.  Specify the question of interest (business understanding, scientific goal, predict or estimate,...)
+2.  Collect data (internal, external, sampled, relevant, ethics,...)
+3.  Manipulate data (explore, transform, merge, filter,...)
+4.  Model data (machine learning, statistics, probability, fit, validate,...)
+5.  Communicate and interpret the results (storytelling, visualization, dashboard, reports,...)
+6.  Deploy and monitor models
+
+## Introduction to R / RStudio {.unnumbered}
+
+The two programming languages we cover in this course are R and Python. These are both open source programming languages. Let's start off with R.
+
+A few features of R are:
+
+> -   **R** is a free software environment for statistical computing and graphics.
+> -   It compiles and runs on a wide variety of UNIX platforms, Windows and MacOS.
+> -   [The R project website](https://www.r-project.org/){target="_blank"} contains a lot of useful information about: [download R](https://cran.r-project.org/mirrors.html){target="_blank"}, documentation and [manuals](https://cran.r-project.org/manuals.html){target="_blank"}, [The R journal](https://journal.r-project.org/){target="_blank"}, [books related to R](https://www.r-project.org/doc/bib/R-books.html){target="_blank"}, and [R packages by topics](https://cran.r-project.org/web/views/){target="_blank"}
+> -   There is a large active community of R users.
+
+> **RStudio** is an integrated development environment (IDE) for R and Python, with a console, syntax-highlighting editor that supports direct code execution, and tools for plotting, history, debugging and workspace management. It compiles and runs on a wide variety of UNIX platforms, Windows and MacOS. [The RStudio website](https://www.rstudio.com/){target="_blank"}. There is an open source license for both the desktop and server versions that you install for free from here: [download RStudio](https://www.rstudio.com/products/rstudio/download/){target="_blank"}
+
+> **R Markdown** provides an authoring framework for data science. You can use a single R Markdown file to both save and execute code generate high quality reports that can be shared with an audience. R Markdown documents are fully reproducible and support dozens of static and dynamic output formats. [The R Markdown 1-minute video](https://rmarkdown.rstudio.com/lesson-1.html){target="_blank"} provides an overview of what R Markdown can do!
+
+#### Install your R/RStudio {.unnumbered}
+
+For TFDS, we will be using RStudio Server hosted at [UWF](https://uwf.edu){target="_blank"}. This is the link [https://rstudio.hmcse.uwf.edu/](https://rstudio.hmcse.uwf.edu/){target="_blank"}. **Login using your UWF account**.
+
+You don't need to install R and RStudio on your computer. But, you are welcome to do so if you wish so.
+
+## Getting started with R {.unnumbered}
+
+🛎️ Recordings of this week provide lessons about R, RStudio, and GitHub. The following will be covered:
+
+-   RStudio (editor, console, global Env., and etc.)
+-   R (scripts, packages, help)
+-   GitHub and connection to RStudio
+-   R Markdown - [Cheet Sheet](https://www.markdownguide.org/cheat-sheet/){target="_blank"}
+-   My first R script - the basics
+    -   Values, vectors, matrices, factors, data.frames, lists. Here is an example of code:
+
+```{r}
+# assign a value to object named "x"
+x = 1
+# or
+x <- 1
+1 -> x  
+# Calculator 
+x=10^2
+y=2*x
+# vectors
+c(1,21,50,80,45,0)
+c("d","4","r")
+# characters
+"R is useful and cool"
+# boolean - TRUE or FALSE
+45>96
+# built-in functions
+sum(1,3,5)
+```
+
+-   Statistical and mathematical functions: An example of code:
+
+```{r}
+# a vector / array
+vec1= c(1,21,50,80,45,0)
+# minimun
+min(vec1)
+# maximum
+max(vec1)
+# exponential function
+exp(vec1)
+# cosine function
+cos(vec1)
+# sine function
+sin(vec1)
+# logarithm function of base e
+log(vec1,0.5)
+# square root
+sqrt(vec1)
+# logarithm function of base 10
+log10(10)
+# logarithm function of base 2
+log2(2)
+# logarithm function of base 45
+log(45,base = 45)
+# factorial
+factorial(3)
+# binomial coefficient / combination
+choose(10,5)
+
+```
+
+-   Summary statistics, random number generation. An example:
+
+```{r fig.align="center", fig.width=5, fig.alt="Histogram of 100 normal random numbers"}
+# a set of values
+vec1= c(1,21,50,80,45,0)
+# summation
+sum(vec1)
+# arithmetic mean
+mean(vec1)
+# standard deviation
+sd(vec1)
+# summary statistics
+summary(vec1)
+# variance
+var(vec1)
+# quantile
+quantile(vec1,0.5)
+# 100 Standard normal random numbers
+x=rnorm(100,mean=0,sd=1)
+# histogram
+hist(x)
+
+```
+
+-   Functions, conditional statements: *if*, *for* and *while*. A code example:
+
+```{r}
+# create your own function
+  myfunction=function(){
+    return(print("Hello there!"))
+  }
+# if statement
+lucky.number=100
+if(lucky.number<=54){
+print("You win!")
+  }else{
+  print("You lost!")
+}
+
+```
+
+🛎 🎙️ Recordings on Canvas will cover more details and examples! Have fun learning and coding 😃! Let me know how I can help!
+
+## 📚 👈 Assignment - R basics {.unnumbered}
+
+Instructions are posted on Canvas.
