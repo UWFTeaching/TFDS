@@ -1,3 +1,7 @@
+library(tidyverse)
+library(hexSticker)
+library(ggthemes)
+
 
  p = mtcars %>%
   ggplot(aes(x = mpg, y = wt) , ) + 
@@ -8,7 +12,7 @@
   theme(legend.position = "none")  
 
   
-  sticker(p, package="Tools+Stat 4DS", p_size=15, s_x=1, s_y=.75, s_width=1.3, s_height=1,dpi = "retina",
+  sticker(p, package="Tools For DS", p_size=20, s_x=1, s_y=.75, s_width=1.3, s_height=1,dpi = "retina",
           filename="logo.png")
 
 
