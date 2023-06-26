@@ -48,7 +48,6 @@ To achieve these operations and more, the package `dplyr`offers the following fu
 | mutate()    | create a new variable |
 | arrange()   | sort                  |
 | summarize() | aggregate the data    |
-| ----------  | ---------             |
 
 Here is an example:
 
@@ -85,16 +84,21 @@ One of the tasks in statistics is to summarize data. Let's look into this exampl
 str(chickwts)
 # Mean and standard deviation of the weight
 chickwts %>% 
-  summarise(mean.weight=mean(weight),s.weight=sd(weight))
+  summarise(mean.weight=mean(weight),
+            s.weight=sd(weight))
 # Mean and standard deviation of the weight by group
 chickwts %>% 
   group_by(feed) %>% 
-  summarise(mean.weight=mean(weight),s.weight=sd(weight), nbr.chick=n())
+  summarise(mean.weight=mean(weight),
+            s.weight=sd(weight),
+            nbr.chick=n())
 # Select groups `casein`, `linseed`, and `soybean`
 chickwts %>% 
   filter(feed %in% c("casein","linseed","soybean")) %>% 
   group_by(feed) %>% 
-  summarise(mean.weight=mean(weight),s.weight=sd(weight), nbr.chick=n())
+  summarise(mean.weight=mean(weight),
+            s.weight=sd(weight),
+            nbr.chick=n())
 ```
 
 ## Data visualization using `ggplot2` {.unnumbered}
@@ -103,10 +107,66 @@ chickwts %>%
 
 This link [The R Graph Gallery](https://www.r-graph-gallery.com/index.html){target="_blank"} provides a gallery of graphs created using R. A good place to get inspired and learn some advanced visualizations.
 
-Let consider the following example:
+### Pilot Certification Data
+
+Data obtained from the Federation Aviation Administration (FAA) in June 2023. The records contains:
+
+-    a unique *ID* for each pilot,
+
+-   *CertLevel*: the certification level (Airline, Commercial, Student, Sport, Private, and Recreational),
+
+-   *STATE*: the USA state,
+
+-   *MedClass*: the medical class,
+
+-   *MedExpMonth*: the medical expire month, and
+
+-   *MedExpYear*: the medical expire year.
 
 ```{r}
+pilots = read.csv(file = "../datasets/pilotsCertFAA2023.csv")
+kable(head(pilots))
+```
 
+```{r message=F, warning=F, echo=F, results='asis'}
+  pilots %>% 
+    ggplot(aes(x=STATE)) + 
+    geom_bar()+
+   theme(axis.text.x = element_text(angle = 60, vjust = 0.5, hjust=0.3))+
+    labs(title="Number of Pilots per State and Certification Level", 
+         y="Number of Pilots", 
+         x="Certification Level", 
+         caption="Pilots Certification Data from FAA, June 2023") +
+    facet_wrap(~CertLevel)
+```
+
+It seems the number of Recreational and Sport pilots are very small. Lets check it out:
+
+```{r}
+pilots %>%
+  group_by(CertLevel) %>%
+  summarise(Number= n()) %>%
+  kable()
+```
+
+Lets subset the data to keep only the Airline, Commercial, Private, and Student pilots.
+
+```{r}
+pilots %>%
+  filter(!(CertLevel %in% c("Sport","Recreational"))) %>%
+  ggplot(aes(x=STATE)) + 
+  geom_bar()+
+  theme(axis.text.x = element_text(angle = 60, vjust = 0.5, hjust=0.3))+
+  labs(title="Number of Pilots per State and Certification Level", 
+         y="Number of Pilots", 
+         x="Certification Level", 
+         caption="Pilots Certification Data from FAA, June 2023") +
+  facet_wrap(~CertLevel)
+```
+
+### Demographic information of midwest counties from 2000 US census:
+
+```{r}
 #Demographic information of midwest counties from 2000 US census
 kable(head(midwest))
 # Get started - `area` and `poptotal` are variable in `midwest`
@@ -116,7 +176,7 @@ ggplot(midwest,aes(x=area,y=poptotal))
 What we see here is a blank ggplot! ggplot does not plot by default a scatter or a line chart! We would need to decide next what should we plot! Let's make a scatter plot.
 
 ```{r}
-
+# add geom_point() to add scatter points to the plot
 ggplot(midwest,aes(x=area,y=poptotal)) + 
   geom_point()
 ```
@@ -124,7 +184,7 @@ ggplot(midwest,aes(x=area,y=poptotal)) +
 Yaay! we did it. Next, let's add a linear regression model: $poptotal = \beta_0 + \beta_1 area$.
 
 ```{r message=F, warning=F, echo=F, results='asis'}
-
+# add geom smooth to add a trend
 ggplot(midwest,aes(x=area,y=poptotal)) + 
   geom_point() + 
   geom_smooth(method = "lm",se = TRUE) # se adds confidence bands
@@ -133,7 +193,6 @@ ggplot(midwest,aes(x=area,y=poptotal)) +
 To control *x* and *y* axis limits, we can use `xlim()` and `ylim()` as follows:
 
 ```{r message=F, warning=F, echo=F, results='asis'}
-
 g1 = ggplot(midwest,aes(x=area,y=poptotal)) + 
   geom_point() + 
   geom_smooth(method = "lm",se = TRUE) # se adds confidence bands
@@ -177,7 +236,6 @@ Let's Add some fancy options:
 Wow! What about adding a new variable to the plot! For example, adding `state` variable. Let's change the color to match the `state` where a data point belongs to; `state` is a variable in the `midwest` dataset.
 
 ```{r message=F, warning=F, echo=F, results='asis'}
-
 midwest %>%
   ggplot(aes(x=area,y=poptotal)) + 
   geom_point(aes(col=state),size=2.5, pch=20) + 

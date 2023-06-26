@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.353">
+<meta name="generator" content="quarto-1.2.269">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -17,10 +17,9 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -47,13 +46,43 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
+    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -102,16 +131,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../t4ds.html">Tools for Data Science</a></li><li class="breadcrumb-item"><a href="../t4ds/week6.html">More Python (Stat/ML/Viz)</a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">More Python (Stat/ML/Viz)</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
       </button>
     </div>
   </nav>
@@ -119,94 +143,67 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Tools for Data Science</a> 
     </div>
       </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
+      <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
         </div>
-        </div>
+      </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Welcome to TS4DS</span></a>
+  <a href="../index.html" class="sidebar-item-text sidebar-link">Welcome to TFDS</a>
   </div>
 </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../t4ds.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Tools for Data Science</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../t4ds/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction</span></a>
+  <a href="../t4ds/week1.html" class="sidebar-item-text sidebar-link">R Basics</a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../t4ds/week1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">R Basics</span></a>
+  <a href="../t4ds/week2.html" class="sidebar-item-text sidebar-link">R Tidyverse</a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../t4ds/week2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">R Tidyverse</span></a>
+  <a href="../t4ds/week3.html" class="sidebar-item-text sidebar-link">SQL Basics</a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../t4ds/week3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">SQL Basics</span></a>
+  <a href="../t4ds/week4.html" class="sidebar-item-text sidebar-link">Advanced SQL</a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../t4ds/week4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Advanced SQL</span></a>
+  <a href="../t4ds/week5.html" class="sidebar-item-text sidebar-link">Python Basics - NumPy and Pandas</a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../t4ds/week5.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Python Basics - NumPy and Pandas</span></a>
+  <a href="../t4ds/week6.html" class="sidebar-item-text sidebar-link active">More Python (Stat/ML/Viz)</a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../t4ds/week6.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">More Python (Stat/ML/Viz)</span></a>
+  <a href="../t4ds/week7.html" class="sidebar-item-text sidebar-link">Final Project</a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../t4ds/week7.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Final Project</span></a>
+  <a href="../t4ds/references.html" class="sidebar-item-text sidebar-link">References</a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../t4ds/references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -225,7 +222,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">More Python (Stat/ML/Viz)</h1>
+<h1 class="title d-none d-lg-block">More Python (Stat/ML/Viz)</h1>
 </div>
 
 
@@ -288,8 +285,8 @@ None</code></pre>
 Dep. Variable:                    mpg   R-squared:                       0.830
 Model:                            OLS   Adj. R-squared:                  0.819
 Method:                 Least Squares   F-statistic:                     70.91
-Date:                Fri, 23 Jun 2023   Prob (F-statistic):           6.81e-12
-Time:                        14:31:59   Log-Likelihood:                -74.005
+Date:                Sun, 25 Jun 2023   Prob (F-statistic):           6.81e-12
+Time:                        23:29:20   Log-Likelihood:                -74.005
 No. Observations:                  32   AIC:                             154.0
 Df Residuals:                      29   BIC:                             158.4
 Df Model:                           2                                         
@@ -331,8 +328,8 @@ Hornet Sportabout  16.646958  0.775271  ...     11.161630     22.132285
 Dep. Variable:                    mpg   R-squared:                       0.837
 Model:                            OLS   Adj. R-squared:                  0.820
 Method:                 Least Squares   F-statistic:                     48.08
-Date:                Fri, 23 Jun 2023   Prob (F-statistic):           3.59e-11
-Time:                        14:31:59   Log-Likelihood:                -73.311
+Date:                Sun, 25 Jun 2023   Prob (F-statistic):           3.59e-11
+Time:                        23:29:20   Log-Likelihood:                -73.311
 No. Observations:                  32   AIC:                             154.6
 Df Residuals:                      28   BIC:                             160.5
 Df Model:                           3                                         
@@ -441,11 +438,11 @@ Notes:
 <span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>plt.figure()<span class="op">;</span></span>
 <span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>plt.boxplot(df_iris)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>{'whiskers': [&lt;matplotlib.lines.Line2D object at 0x1305638b0&gt;, &lt;matplotlib.lines.Line2D object at 0x130563b50&gt;, &lt;matplotlib.lines.Line2D object at 0x130578b80&gt;, &lt;matplotlib.lines.Line2D object at 0x130578e20&gt;, &lt;matplotlib.lines.Line2D object at 0x130588e20&gt;, &lt;matplotlib.lines.Line2D object at 0x130594100&gt;, &lt;matplotlib.lines.Line2D object at 0x1305a5100&gt;, &lt;matplotlib.lines.Line2D object at 0x1305a53a0&gt;], 'caps': [&lt;matplotlib.lines.Line2D object at 0x130563df0&gt;, &lt;matplotlib.lines.Line2D object at 0x1305780d0&gt;, &lt;matplotlib.lines.Line2D object at 0x130588100&gt;, &lt;matplotlib.lines.Line2D object at 0x1305883a0&gt;, &lt;matplotlib.lines.Line2D object at 0x1305943a0&gt;, &lt;matplotlib.lines.Line2D object at 0x130594640&gt;, &lt;matplotlib.lines.Line2D object at 0x1305a5640&gt;, &lt;matplotlib.lines.Line2D object at 0x1305a58e0&gt;], 'boxes': [&lt;matplotlib.lines.Line2D object at 0x130563610&gt;, &lt;matplotlib.lines.Line2D object at 0x1305788e0&gt;, &lt;matplotlib.lines.Line2D object at 0x130588b80&gt;, &lt;matplotlib.lines.Line2D object at 0x130594e20&gt;], 'medians': [&lt;matplotlib.lines.Line2D object at 0x130578370&gt;, &lt;matplotlib.lines.Line2D object at 0x130588640&gt;, &lt;matplotlib.lines.Line2D object at 0x1305948e0&gt;, &lt;matplotlib.lines.Line2D object at 0x1305a5b80&gt;], 'fliers': [&lt;matplotlib.lines.Line2D object at 0x130578610&gt;, &lt;matplotlib.lines.Line2D object at 0x1305888e0&gt;, &lt;matplotlib.lines.Line2D object at 0x130594b80&gt;, &lt;matplotlib.lines.Line2D object at 0x1305a5e20&gt;], 'means': []}</code></pre>
+<pre><code>{'whiskers': [&lt;matplotlib.lines.Line2D object at 0x132ab8240&gt;, &lt;matplotlib.lines.Line2D object at 0x132ab8518&gt;, &lt;matplotlib.lines.Line2D object at 0x132ac46d8&gt;, &lt;matplotlib.lines.Line2D object at 0x132ac49b0&gt;, &lt;matplotlib.lines.Line2D object at 0x132ad49b0&gt;, &lt;matplotlib.lines.Line2D object at 0x132ad4c50&gt;, &lt;matplotlib.lines.Line2D object at 0x132ae4b70&gt;, &lt;matplotlib.lines.Line2D object at 0x132ae4e10&gt;], 'caps': [&lt;matplotlib.lines.Line2D object at 0x132ab87f0&gt;, &lt;matplotlib.lines.Line2D object at 0x132ab8ac8&gt;, &lt;matplotlib.lines.Line2D object at 0x132ac4c88&gt;, &lt;matplotlib.lines.Line2D object at 0x132ac4ef0&gt;, &lt;matplotlib.lines.Line2D object at 0x132ad4ef0&gt;, &lt;matplotlib.lines.Line2D object at 0x13297e860&gt;, &lt;matplotlib.lines.Line2D object at 0x132ad4f28&gt;, &lt;matplotlib.lines.Line2D object at 0x132af4390&gt;], 'boxes': [&lt;matplotlib.lines.Line2D object at 0x1329a7ef0&gt;, &lt;matplotlib.lines.Line2D object at 0x132ac43c8&gt;, &lt;matplotlib.lines.Line2D object at 0x132ad4710&gt;, &lt;matplotlib.lines.Line2D object at 0x132ae4908&gt;], 'medians': [&lt;matplotlib.lines.Line2D object at 0x132ab8da0&gt;, &lt;matplotlib.lines.Line2D object at 0x132ab8d68&gt;, &lt;matplotlib.lines.Line2D object at 0x132ae4390&gt;, &lt;matplotlib.lines.Line2D object at 0x132af4630&gt;], 'fliers': [&lt;matplotlib.lines.Line2D object at 0x1329a7f28&gt;, &lt;matplotlib.lines.Line2D object at 0x132ad4470&gt;, &lt;matplotlib.lines.Line2D object at 0x132ae4630&gt;, &lt;matplotlib.lines.Line2D object at 0x132af48d0&gt;], 'means': []}</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>plt.xticks([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>], iris.feature_names)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>([&lt;matplotlib.axis.XTick object at 0x1305308e0&gt;, &lt;matplotlib.axis.XTick object at 0x1305308b0&gt;, &lt;matplotlib.axis.XTick object at 0x1305a5f70&gt;, &lt;matplotlib.axis.XTick object at 0x1305b2790&gt;], [Text(1, 0, 'sepal length (cm)'), Text(2, 0, 'sepal width (cm)'), Text(3, 0, 'petal length (cm)'), Text(4, 0, 'petal width (cm)')])</code></pre>
+<pre><code>([&lt;matplotlib.axis.XTick object at 0x13297e6a0&gt;, &lt;matplotlib.axis.XTick object at 0x13297e080&gt;, &lt;matplotlib.axis.XTick object at 0x132997da0&gt;, &lt;matplotlib.axis.XTick object at 0x132af4eb8&gt;], [Text(1, 0, 'sepal length (cm)'), Text(2, 0, 'sepal width (cm)'), Text(3, 0, 'petal length (cm)'), Text(4, 0, 'petal width (cm)')])</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>plt.grid()</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -510,23 +507,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
-      }
-    }
-    return false;
-  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
+    target: function(trigger) {
+      return trigger.previousElementSibling;
     }
   });
   clipboard.on('success', function(e) {
@@ -591,92 +574,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {

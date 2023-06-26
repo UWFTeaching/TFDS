@@ -4,7 +4,7 @@ At the end of this week, you will be able to:
 
 -   Show an understanding of data science workflow
 -   Start your computing environment
--   Write your first code using R
+-   Write your first R script
 -   Practice with basic R programming tools such as `for loop`, `data frames`, etc.
 
 ## Data Science? {.unnumbered}
@@ -69,26 +69,28 @@ The technologies deployed in the analytics and data science have advanced very f
 Often, the data science process is iterative. Some steps in the data science workflow include:
 
 1.  Specify the question of interest (business understanding, scientific goal, predict or estimate,...)
+
 2.  Collect data (internal, external, sampled, relevant, ethics,...)
+
 3.  Manipulate data (explore, transform, merge, filter,...)
+
 4.  Model data (machine learning, statistics, probability, fit, validate,...)
+
 5.  Communicate and interpret the results (storytelling, visualization, dashboard, reports,...)
+
 6.  Deploy and monitor models
 
-## Introduction to R / RStudio {.unnumbered}
+## Introduction to R / RStudio /Quarto {.unnumbered}
 
 The two programming languages we cover in this course are R and Python. These are both open source programming languages. Let's start off with R.
 
 A few features of R are:
 
-> -   **R** is a free software environment for statistical computing and graphics.
-> -   It compiles and runs on a wide variety of UNIX platforms, Windows and MacOS.
-> -   [The R project website](https://www.r-project.org/){target="_blank"} contains a lot of useful information about: [download R](https://cran.r-project.org/mirrors.html){target="_blank"}, documentation and [manuals](https://cran.r-project.org/manuals.html){target="_blank"}, [The R journal](https://journal.r-project.org/){target="_blank"}, [books related to R](https://www.r-project.org/doc/bib/R-books.html){target="_blank"}, and [R packages by topics](https://cran.r-project.org/web/views/){target="_blank"}
-> -   There is a large active community of R users.
+> [**R**](https://www.r-project.org/) is a free software environment for statistical computing and graphics. It compiles and runs on a wide variety of UNIX platforms, Windows and MacOS. There is link to [download R](https://cran.r-project.org/mirrors.html){target="_blank"}, documentation and [manuals](https://cran.r-project.org/manuals.html){target="_blank"}, [The R journal](https://journal.r-project.org/){target="_blank"}, [books related to R](https://www.r-project.org/doc/bib/R-books.html){target="_blank"}, and [R packages by topics](https://cran.r-project.org/web/views/){target="_blank"}
 
-> **RStudio** is an integrated development environment (IDE) for R and Python, with a console, syntax-highlighting editor that supports direct code execution, and tools for plotting, history, debugging and workspace management. It compiles and runs on a wide variety of UNIX platforms, Windows and MacOS. [The RStudio website](https://www.rstudio.com/){target="_blank"}. There is an open source license for both the desktop and server versions that you install for free from here: [download RStudio](https://www.rstudio.com/products/rstudio/download/){target="_blank"}
+> [**RStudio**](https://posit.co/) is an integrated development environment (IDE) for R and Python, with a console, syntax-highlighting editor that supports direct code execution, and tools for plotting, history, debugging and workspace management. It compiles and runs on a wide variety of UNIX platforms, Windows and MacOS. There is an open source license that you can install for free from here: [download RStudio](https://posit.co/download/rstudio-desktop/){target="_blank"}
 
-> **R Markdown** provides an authoring framework for data science. You can use a single R Markdown file to both save and execute code generate high quality reports that can be shared with an audience. R Markdown documents are fully reproducible and support dozens of static and dynamic output formats. [The R Markdown 1-minute video](https://rmarkdown.rstudio.com/lesson-1.html){target="_blank"} provides an overview of what R Markdown can do!
+> [**Quarto**](https://quarto.org/) provides an authoring framework for data science reporting. It creates dynamic content with [Python](https://quarto.org/docs/computations/python.html), [R](https://quarto.org/docs/computations/r.html), [Julia](https://quarto.org/docs/computations/julia.html), and [Observable](https://quarto.org/docs/computations/ojs.html) and high quality reports that can be shared with an audience. **Quarto (.qmd)** documents are fully reproducible and support dozens of static and dynamic output formats.
 
 #### Install your R/RStudio {.unnumbered}
 
@@ -116,8 +118,9 @@ x <- 1
 # Calculator 
 x=10^2
 y=2*x
-# vectors
+# vectors / arrays
 c(1,21,50,80,45,0)
+# characters array
 c("d","4","r")
 # characters
 "R is useful and cool"

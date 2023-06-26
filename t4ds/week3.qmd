@@ -226,7 +226,7 @@ Often you will be asked to answer questions that involve writing queries for sum
 Below are the main aggregate functions:
 
 | Function  | Action                                                                                              |
-|-------------|----------------------------------------------------------|
+|-----------|-----------------------------------------------------------------------------------------------------|
 | `AVG()`   | average values                                                                                      |
 | `COUNT()` | count the number of rows in a table                                                                 |
 | `MAX()`   | select the highest value <br/> select the latest date <br/>select the last record for a character   |

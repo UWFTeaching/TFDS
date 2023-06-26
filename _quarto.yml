@@ -3,23 +3,22 @@ project:
 
 book:
   title: "Tools for Data Science"
-  subtitle: "TS4DS"
+  subtitle: "TFDS"
   author:   
     - Achraf Cohen, PhD 
   date: "2023"
   chapters:
   - index.qmd
-  - part: t4ds.qmd
-    chapters:
-      - t4ds/index.qmd
-      - t4ds/week1.qmd
-      - t4ds/week2.qmd
-      - t4ds/week3.qmd
-      - t4ds/week4.qmd
-      - t4ds/week5.qmd
-      - t4ds/week6.qmd
-      - t4ds/week7.qmd
-      - t4ds/references.qmd
+  #- part: t4ds.qmd
+  #  chapters:
+  - t4ds/week1.qmd
+  - t4ds/week2.qmd
+  - t4ds/week3.qmd
+  - t4ds/week4.qmd
+  - t4ds/week5.qmd
+  - t4ds/week6.qmd
+  - t4ds/week7.qmd
+  - t4ds/references.qmd
   # - part: t4ds.qmd
   #   chapters:
   #     - t4ds/index.qmd

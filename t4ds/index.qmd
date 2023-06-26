@@ -34,7 +34,7 @@ Note that the focus of the course will be learning programming using R and Pytho
 Each week, we will have 2 tasks to complete as follows:
 
 | Days                  | To do                            | Due day             |
-|---------------------|------------------------------|---------------------|
+|-----------------------|----------------------------------|---------------------|
 | Mondays to Wednesdays | Reading/Watch recordings         | NA                  |
 | Wednesdays to Mondays | Practice and Discuss (credit 5%) | Monday\@11:59 pm CT |
 |                       |                                  |                     |
