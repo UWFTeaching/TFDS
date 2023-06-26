@@ -2,7 +2,7 @@
 
 # Welcome to TFDS {.unnumbered}
 
-This eBook is used for **Tools and Statistics for Data Science** (TS4DS) courses offered at the University of West Florida, Hal Marcus College of Engineering and Science.
+This eBook is used for **Tools for Data Science** (TFDS) courses offered at the University of West Florida, Hal Marcus College of Engineering and Science.
 
 An 8-Week course on **Tools for data science** using R, Python, and SQL. Throughout the course, there will be hands-on exercises with computing resources. The course will include introductions to several packages in R, particularly `Tidyverse`, libraries in Python such as `Pandas`, `NumPy`, and `matplotlib`. SQL clauses including `joins`, `sub-queries`, and summary statistics.
 

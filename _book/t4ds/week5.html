@@ -374,8 +374,8 @@ Hello</code></pre>
 <span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(np.random.normal(loc<span class="op">=</span><span class="dv">0</span>,scale<span class="op">=</span><span class="dv">1</span>,size<span class="op">=</span><span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>HeyHeyHey
-8
-[-0.32081325 -0.52836839]</code></pre>
+4
+[ 1.43457563 -0.06676715]</code></pre>
 </div>
 </div>
 <p>Strings operations:</p>
@@ -604,27 +604,27 @@ From the index 2 (included) to the end:  [3 4 5 6 7]</code></pre>
 <span id="cb23-27"><a href="#cb23-27" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> random.normal(loc<span class="op">=</span><span class="dv">1</span>, scale<span class="op">=</span><span class="fl">0.5</span>, size<span class="op">=</span>(<span class="dv">10</span>)) <span class="co"># Normal distribution</span></span>
 <span id="cb23-28"><a href="#cb23-28" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>34
-[0.69578115 0.97889312 0.01206583 0.82203761 0.33771828 0.89955906
- 0.06870383 0.0557936  0.83132426 0.12674754]
-[ 7 57 57 73 74 65 66 67 92 90]
-[[38 71 49 84 88 45 99 75 14 58]
- [82  7 50 26 86  3 45 55 90 54]
- [20 52 65 77 90  5  1 95 26 29]
- [29  9  8 26 92  3 41 39 96 79]
- [14 55 13 37 82 96  9 39 75 55]
- [49 11 35 51 90 85 53 45 92 47]
- [53 77  8 33 39  7 96 70 92 57]
- [ 0 20  9 38  1 55 19 59 94 51]
- [16 11 96 76 67 15 74 59 50 83]
- [73 25 22 54 90 10 38 72 47  9]]
+<pre><code>53
+[0.99060781 0.12088498 0.76256274 0.42779646 0.0122691  0.41670461
+ 0.49102434 0.82348545 0.86427452 0.22292718]
+[25 76 42 84 29 58 22 91 25 59]
+[[70 18 94 19 91  2  3 52 50 49]
+ [76 11 22 60 52  3 16 42 69 36]
+ [87 21 27 17 40 93 46 98 18 99]
+ [23 24 48 21 56 67 38 43 91 49]
+ [24 39 79 86 47 92 98 37 43 38]
+ [73 71 76 67 12 69 14  7 28 14]
+ [48 66 54 46 59 20 65  9 62 99]
+ [86 37 32 44 65 47 67 47 58 35]
+ [25 55 97 58 15 89 81 62 95 79]
+ [87 87 82 93 51 27 51 44 38 70]]
 100
-[ 45   0 100   0  45 100   0   0  12  12]
-[12  0  0  0  0  0 12  0 12  0]
-[1.13535739 1.25822864 0.92889397 1.42851038 0.71761886 1.12048596
- 1.57222946 1.19090244 0.80883045 1.70467039]
-[0.46664018 0.1646349  1.45342466 1.14927017 0.96443688 0.498605
- 1.39872177 0.53066025 1.37580037 1.15922746]</code></pre>
+[  0 100 100  12   0   0  12  12 100  45]
+[ 0  0  0 12 12 12  0 12  0  0]
+[0.53855347 0.21123288 1.77564677 0.88454586 0.57176471 0.45173899
+ 1.03340807 1.57456996 1.2159189  1.51854175]
+[ 0.31646738  1.6515185   1.2442651   0.27523439  1.09391    -0.0321376
+  0.01787003  1.16992569  0.42504244  0.72243287]</code></pre>
 </div>
 </div>
 <p>📚 For more reading visit <a href="https://jakevdp.github.io/PythonDataScienceHandbook/02.00-introduction-to-numpy.html" target="_blank">Introduction to NumPy</a>.</p>
@@ -725,8 +725,10 @@ Data columns (total 3 columns):
  1   speed       50 non-null     int64
  2   dist        50 non-null     int64
 dtypes: int64(3)
-memory usage: 1.3 KB
-None
+memory usage: 1.3 KB</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>None
 0    False
 1    False
 2    False
