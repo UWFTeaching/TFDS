@@ -111,7 +111,7 @@ This link [The R Graph Gallery](https://www.r-graph-gallery.com/index.html){targ
 
 Data obtained from the Federation Aviation Administration (FAA) in June 2023. The records contains:
 
--    a unique *ID* for each pilot,
+-   a unique *ID* for each pilot,
 
 -   *CertLevel*: the certification level (Airline, Commercial, Student, Sport, Private, and Recreational),
 
