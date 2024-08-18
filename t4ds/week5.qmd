@@ -34,6 +34,10 @@ Recordings of this week provide lessons about the following concepts:
 
 -   Python Variables:
 
+```{r, include=FALSE}
+library(reticulate)
+```
+
 ```{python}
 # This is Python Code
 print("Hello World!")
@@ -295,7 +299,7 @@ print(df.info()) # Info about Data
 
 df.head()
 
-df.loc[3,"speed"] = np.NaN # insert NaN in the row 10 in speed column
+df.loc[3,"speed"] = np.nan # insert NaN in the row 10 in speed column
 df.head()
 
 newdf = df.dropna() # drop NA cells
